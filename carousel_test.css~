@@ -25,7 +25,6 @@
     bottom:105px; 
     cursor: pointer; 
     cursor: hand;
-    color: lightblue;
 }
 .fa-chevron-left { 
     float:left;
@@ -33,7 +32,6 @@
     bottom:105px; 
     cursor: pointer; 
     cursor: hand;
-    color: lightblue;
 }
 #carousel:hover > .fa-chevron-left {
     color: #fff;
