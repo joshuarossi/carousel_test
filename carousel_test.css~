@@ -23,9 +23,19 @@
     float: right;
     position:relative;
     bottom:105px; 
+    cursor: pointer; 
+    cursor: hand;
 }
 .fa-chevron-left { 
     float:left;
     position:relative;
     bottom:105px; 
+    cursor: pointer; 
+    cursor: hand;
+}
+#carousel:hover > .fa-chevron-left {
+    color: #fff;
+}
+#carousel:hover > .fa-chevron-right {
+    color: #fff;
 }
