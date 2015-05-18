@@ -12,12 +12,32 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isClient) {
+    //Handles the transition effect upon jackpot change
+    var toggle = new ReactiveVar(0);
+    function transitionEffect () {
+        Session.set('selected', true);
+        Meteor.setTimeout(function () {
+            Session.set('selected', false);
+        }, 250);
+    }
+    Tracker.autorun(function () {
+        if (toggle.get() > 0){
+            transitionEffect();
+        }
+    });
+    var query = jackpot.find({_id: 'a'});
+    var handle = query.observeChanges({
+        changed: function () {
+            toggle.set(toggle.get() + 1);
+        }
+    });
+
+    //Adds the carousel when the template has rendered
     Template.carousel.rendered = function () {
         $('#carousel').slick({
             dots: false,
             arrows: true,
             draggable: true,
-            fade: true,
 	    prevArrow: '<i class="fa fa-chevron-left"></i>',
 	    nextArrow: '<i class="fa fa-chevron-right"></i>'
         });
@@ -27,17 +47,9 @@ if (Meteor.isClient) {
             return Session.get('selected')
         }
     });
-    Template.carousel.events({
-        'mouseenter #carousel': function () {
-            Session.set({'button_hidden': false});
-        },
-        'mouseleave #carousel': function () {
-            Session.set({'button_hidden': true});
-        }
-    });
+
+    //Sets the visibility on the nav buttons based on hover
     Template.pageOne.helpers({
-        'buttonHidden': function () {
-            return Session.get('button_hidden')},
         'jackpot': function () {
             jackpot_subscription = Meteor.subscribe('jackpot_publish');
             if (jackpot_subscription.ready()){
@@ -45,6 +57,8 @@ if (Meteor.isClient) {
             }
         }
     });
+
+    //Simple form to change the jackpot amount (increment by 20%)
     Template.donate_form.events({
         'submit form': function(){
             event.preventDefault();
@@ -52,12 +66,5 @@ if (Meteor.isClient) {
             jackpot.update({_id: 'a'}, {$inc: {value: donation}});
             event.target.donation.value = "";
         }
-    });
-    Tracker.autorun(function () {
-        jackpot.findOne({'_id': 'a'});
-        Session.set('selected', true);
-        Meteor.setTimeout(function () {
-            Session.set('selected', false);
-        }, 500);
     });
 }
