@@ -58,6 +58,6 @@ if (Meteor.isClient) {
         Session.set('selected', true);
         Meteor.setTimeout(function () {
             Session.set('selected', false);
-        }, 250);
+        }, 500);
     });
 }

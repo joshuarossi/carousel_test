@@ -7,11 +7,11 @@
 }
 
 .selected {
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease-out;
     background-color: gold;
 }
 .not_selected {
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease-in;
     background-color: lightblue;
 }
 
