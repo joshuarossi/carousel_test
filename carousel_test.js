@@ -4,7 +4,9 @@ if (Meteor.isClient) {
         $('#carousel').slick({
             dots: false,
             arrows: true,
-            draggable: true
+            draggable: true,
+            prevArrow: '<button type="button" class="slick-prev {{#if buttonHidden}}.prev_hidden{{/if}}">Previous</button>',
+            nextArrow: '<button type="button" class="slick-next">Next</button>'
         });
     };
     Template.pageOne.helpers({

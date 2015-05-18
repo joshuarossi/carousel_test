@@ -1,5 +1,4 @@
 #carousel {
-
     width:    200px;
     position: relative;
     top:      100px;
@@ -15,7 +14,10 @@
 
 }
 
-#carousel span {
-    vertical-align: middle;
+.slick-prev::before, .slick-next::before {
+    color:    silver;
 }
 
+.prev_hidden .next_hidden {
+    display: none;
+}
