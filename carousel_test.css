@@ -6,17 +6,20 @@
     left:     100px;
 }
 
+.selected {
+    transition: background-color 0.5s ease;
+    background-color: gold;
+}
+.not_selected {
+    transition: background-color 0.5s ease;
+    background-color: lightblue;
+}
+
 #carousel div {
     width:    200px;
     height: 200px;
-    background-color: lightblue;
     color: white;
     text-align: center;
-
-}
-
-#carousel span {
-    vertical-align: middle;
 }
 
 .fa-chevron-right {
@@ -25,19 +28,29 @@
     bottom:105px; 
     cursor: pointer; 
     cursor: hand;
-    color: lightblue;
+    color: white;
+    visibility: hidden;
 }
+
 .fa-chevron-left { 
     float:left;
     position:relative;
     bottom:105px; 
     cursor: pointer; 
     cursor: hand;
-    color: lightblue;
+    color: white;
+    visibility: hidden;
 }
+
 #carousel:hover > .fa-chevron-left {
-    color: #fff;
+    visibility: visible;
 }
+
 #carousel:hover > .fa-chevron-right {
-    color: #fff;
+    visibility: visible;
+}
+.donation_form {
+    color: black;
+    display: inline-block;
+    position: relative;top:100px;
 }

@@ -1,16 +1,14 @@
 <template name="pageOne">
-    Page 1
-  {{#if buttonHidden}}
-      <p>It's true</p>
-  {{else}}
-      <p>It's false</p>
+    <h1>Page 1</h1>
+  {{#if Template.subscriptionsReady}}
+      <p>Jackpot ${{jackpot}}</p>
   {{/if}}
 </template>
 
 <template name="pageTwo">
-    Page 2
+    <h1>Page 2</h1>
 </template>
 
 <template name="pageThree">
-    Page 3
+    <h1>Page 3</h1>
 </template>
