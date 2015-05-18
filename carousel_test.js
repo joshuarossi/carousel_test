@@ -49,9 +49,8 @@ if (Meteor.isClient) {
         'submit form': function(){
             event.preventDefault();
             var donation = event.target.donation.value * 0.20;
-            console.log(donation);
             jackpot.update({_id: 'a'}, {$inc: {value: donation}});
-            console.log(jackpot.findOne({_id: 'a'}));
+            event.target.donation.value = "";
         }
     });
     Tracker.autorun(function () {
