@@ -23,13 +23,9 @@
     float: right;
     position:relative;
     bottom:105px; 
-    cursor: pointer; 
-    cursor: hand;
 }
 .fa-chevron-left { 
     float:left;
     position:relative;
     bottom:105px; 
-    cursor: pointer; 
-    cursor: hand;
 }
